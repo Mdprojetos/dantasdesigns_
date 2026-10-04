@@ -56,7 +56,6 @@ a { color: inherit; }
 .wrap { max-width: 1120px; margin-inline: auto; }
 h1, h2, h3 { font-family: var(--display); text-transform: uppercase; line-height: 0.95; margin: 0; text-wrap: balance; }
 h2 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; font-style: italic; letter-spacing: 0.01em; }
-.eyebrow { font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.95rem; color: var(--blue); margin: 0 0 12px; }
 
 /* Topo */
 .top {
@@ -69,7 +68,7 @@ h2 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; font-style: italic; 
 .logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 800; font-style: italic; font-size: 1.6rem; text-transform: uppercase; text-decoration: none; letter-spacing: 0.02em; line-height: 1; }
 .logo img { display: block; height: 36px; width: auto; }
 .logo b { color: var(--blue); font-weight: inherit; }
-.brand { display: block; width: min(300px, 70%); height: auto; margin: 0 0 34px; }
+.brand { display: block; width: 150px; height: auto; margin: 0 0 40px; }
 .nav { display: flex; align-items: center; gap: 22px; }
 .nav a.link { text-decoration: none; font-weight: 600; font-size: 0.95rem; position: relative; padding-block: 6px; }
 .nav a.link::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 3px; background: var(--blue); transition: right .25s ease; }
@@ -94,22 +93,16 @@ h2 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; font-style: italic; 
 .hero { padding-block: 48px 64px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
 .hero > * { min-width: 0; }
 .hero h1 { font-size: clamp(3.2rem, 9.5vw, 6.8rem); font-weight: 800; font-style: italic; letter-spacing: 0.005em; }
-.hero h1 em { font-style: italic; color: var(--blue); }
 .hero p.lead { font-size: 1.15rem; max-width: 34em; color: var(--muted); margin: 22px 0 28px; }
 .hero .actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
-.pricepill { font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 1rem; color: var(--muted); }
-.pricepill b { color: var(--ink); font-weight: 800; }
-.stage { position: relative; aspect-ratio: 4 / 5; max-width: 100%; }
+.pricepill { font-weight: 500; font-size: 1rem; color: var(--muted); }
+.pricepill b { color: var(--ink); font-weight: 600; }
+.stage { position: relative; aspect-ratio: 9 / 16; width: min(100%, 340px); justify-self: end; margin-right: 4%; animation: enter .9s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes enter { from { opacity: 0; transform: translateX(36px); } }
 .stage .slab { position: absolute; inset: 0; background: var(--ink); clip-path: polygon(12% 0, 100% 0, 88% 100%, 0 100%); }
 .stage .slab.b { background: var(--blue); inset: 6% -4% -4% 8%; z-index: 0; }
-.stage .art { position: absolute; inset: 0; z-index: 2; transform: rotate(-3deg) scale(.86); overflow: hidden; background: var(--ink); box-shadow: 0 30px 60px -20px rgba(6,47,158,.45); }
+.stage .art { position: absolute; inset: 3% 5%; z-index: 2; transform: rotate(-3deg); overflow: hidden; background: var(--ink); box-shadow: 0 30px 60px -20px rgba(6,47,158,.45); }
 .stage .art img { display: block; width: 100%; height: 100%; object-fit: cover; }
-
-/* Faixa */
-.marquee { margin-inline: -16px; background: var(--ink); color: var(--white); overflow: hidden; border-block: 4px solid var(--blue); }
-.marquee .track { display: flex; gap: 40px; width: max-content; padding-block: 12px; animation: slide 28s linear infinite; font-family: var(--display); font-weight: 800; font-style: italic; text-transform: uppercase; font-size: 1.5rem; letter-spacing: 0.06em; white-space: nowrap; }
-.marquee .track span:nth-child(even) { color: var(--blue); }
-@keyframes slide { to { transform: translateX(-50%); } }
 
 /* Seções */
 section { padding-block: 80px 0; }
@@ -121,8 +114,8 @@ section { padding-block: 80px 0; }
 .chip { font-family: var(--display); font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: 0.05em; font-size: 1.05rem; padding: 9px 18px; background: var(--white); color: var(--ink); border: 2px solid var(--ink); cursor: pointer; transition: all .2s ease; }
 .chip:hover { border-color: var(--blue); color: var(--blue); }
 .chip[aria-pressed="true"] { background: var(--ink); color: var(--white); border-color: var(--ink); }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 22px; }
-.grid.wide { grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 22px; }
+.grid.wide { grid-template-columns: repeat(2, 1fr); }
 .group { margin-top: 44px; }
 .group:first-of-type { margin-top: 0; }
 .group h3 { font-size: 1.7rem; font-weight: 800; font-style: italic; margin-bottom: 18px; display: flex; align-items: center; gap: 14px; }
@@ -133,26 +126,17 @@ section { padding-block: 80px 0; }
 .grid.wide .tile .frame { aspect-ratio: 16 / 9; }
 .tile .frame img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
 .tile:hover .frame img, .tile:focus-visible .frame img { transform: scale(1.05); }
-.tile .meta { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 12px 2px 0; }
+.tile .meta { display: grid; gap: 2px; padding: 12px 2px 10px; }
 .tile .meta b { font-family: var(--display); font-size: 1.3rem; text-transform: uppercase; font-style: italic; font-weight: 800; line-height: 1.05; }
-.tile .meta small { font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--blue); font-size: 0.85rem; white-space: nowrap; }
-.shine { animation: shine 2.8s ease-in-out infinite; }
-@keyframes shine { 0%, 100% { transform: translateX(-60px); opacity: .0; } 40%, 60% { opacity: .35; } 50% { transform: translateX(380px); } }
-.pulse { transform-origin: center; transform-box: fill-box; animation: pulse 1.8s ease-in-out infinite; }
-@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.14); } }
-
+.tile .meta span { font-size: 0.95rem; color: var(--muted); }
 /* Valores */
 .prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .price { position: relative; background: var(--paper); padding: 30px 26px 28px; display: flex; flex-direction: column; gap: 14px; min-width: 0; border-top: 6px solid var(--ink); transition: transform .25s ease, box-shadow .25s ease; }
 .price:hover { transform: translateY(-6px); box-shadow: 0 22px 40px -22px rgba(11,87,255,.5); }
-.price.hot { background: var(--ink); color: var(--white); border-top-color: var(--blue); }
-.price .tag { position: absolute; top: 0; right: 0; background: var(--blue); color: var(--white); font-family: var(--display); font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.85rem; padding: 6px 14px; }
 .price h3 { font-size: 2rem; font-weight: 800; font-style: italic; }
 .price .val { font-family: var(--display); font-weight: 800; font-style: italic; font-size: 4.2rem; line-height: 1; display: flex; align-items: baseline; gap: 6px; }
 .price .val small { font-size: 1.5rem; color: var(--blue); }
-.price.hot .val small { color: #7fa6ff; }
 .price p { margin: 0; color: var(--muted); flex: 1; }
-.price.hot p { color: #b9c4dc; }
 .price .btn { align-self: flex-start; }
 
 /* Sobre */
@@ -170,18 +154,18 @@ section { padding-block: 80px 0; }
 .pillars span { color: var(--muted); }
 
 /* Contato final */
-.closing { margin-top: 90px; margin-inline: -16px; padding: 70px 16px 54px; background: var(--ink); color: var(--white); position: relative; overflow: hidden; }
-.closing::before { content: ""; position: absolute; right: -8%; top: -30%; width: 46%; height: 160%; background: var(--blue); transform: skewX(-18deg); opacity: .9; }
+.closing { margin-top: 90px; margin-inline: -16px; padding: 64px 16px 54px; background: var(--ink); color: var(--white); position: relative; overflow: hidden; }
+.closing::before { content: ""; position: absolute; right: -8%; top: -30%; width: 38%; height: 160%; background: var(--blue); transform: skewX(-18deg); opacity: .9; }
 .closing .wrap { position: relative; }
-.closing h2 { font-size: clamp(2.8rem, 8vw, 6rem); max-width: 10em; }
+.closing h2 { font-size: clamp(2.8rem, 7vw, 4.8rem); max-width: 9em; }
 .closing p { max-width: 30em; color: #c4cee4; margin: 18px 0 30px; font-size: 1.1rem; }
 .socials { display: flex; flex-wrap: wrap; gap: 14px; }
 .socials .btn { background: var(--white); color: var(--ink); font-size: 1.2rem; padding: 17px 26px; }
 .socials .btn:hover { background: var(--blue); color: var(--white); }
 .socials .btn.wa { background: var(--blue); color: var(--white); }
 .socials .btn.wa:hover { background: var(--white); color: var(--ink); }
-.contacts { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 8px 28px; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.08em; font-size: 1.05rem; color: #b9c4dc; }
-.contacts b { color: var(--white); font-weight: 800; }
+.contacts { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 6px 28px; font-size: 1rem; color: #b9c4dc; }
+.contacts b { color: var(--white); font-weight: 600; }
 .foot { margin-inline: -16px; padding: 18px 16px calc(18px + env(safe-area-inset-bottom, 0px)); background: var(--ink); border-top: 1px solid #1d2230; color: #8d99b3; font-size: 0.9rem; text-align: center; }
 
 /* WhatsApp flutuante */
@@ -202,7 +186,9 @@ section { padding-block: 80px 0; }
 
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; padding-block: 32px 48px; }
-  .stage { max-width: 340px; margin-inline: auto; width: 100%; }
+  .stage { justify-self: center; margin-right: 0; width: min(100%, 300px); }
+  .closing::before { display: none; }
+  .closing { border-top: 6px solid var(--blue); }
   .prices { grid-template-columns: 1fr; }
   .about { grid-template-columns: 1fr; gap: 32px; }
   .nav a.link { display: none; }
@@ -210,16 +196,18 @@ section { padding-block: 80px 0; }
 }
 @media (max-width: 480px) {
   body { font-size: 16px; }
-  .grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-  .tile .meta { flex-direction: column; gap: 2px; }
+  .grid, .grid.wide { grid-template-columns: 1fr 1fr; gap: 20px 14px; }
+  #gridFlyer .tile:first-child { grid-column: 1 / -1; }
+  .grid.wide .tile { grid-column: 1 / -1; }
   .tile .meta b { font-size: 1.1rem; }
+  .tile .meta span { font-size: 0.85rem; }
   .fab span { display: none; }
   .fab { padding: 14px; }
   .socials .btn { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .marquee .track, .shine, .pulse { animation: none; }
+  .stage { animation: none; }
   .btn, .price, .tile .frame img, .fab { transition: none; }
 }
 </style>
@@ -250,9 +238,8 @@ document.addEventListener("error", function (e) {
 <main id="inicio" class="wrap">
   <div class="hero">
     <div>
-      <p class="eyebrow">Design esportivo para atletas</p>
-      <h1>Sua imagem em <em>campo,</em> no nível do jogo.</h1>
-      <p class="lead">A Dantas Designs cria artes que colocam o atleta em destaque. Uma imagem forte abre portas, atrai olhares e gera oportunidades na sua área.</p>
+      <h1>Sua imagem em campo, no nível do jogo.</h1>
+      <p class="lead">A Dantas Designs faz design esportivo para atletas. Uma imagem forte abre portas, atrai olhares e gera oportunidades na sua área.</p>
       <div class="actions">
         <a class="btn wa-link" href="#" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5-.1-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.300.5 1.700.6.7.2 1.400.2 1.900.1.600-.1 1.800-.7 2-1.400.3-.7.3-1.300.2-1.400-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.600 15l-1.300 4.900 5-1.300A10 10 0 1 0 12 2zm0 18.200c-1.500 0-3-.4-4.200-1.200l-.3-.2-3 .8.8-2.900-.2-.3A8.200 8.200 0 1 1 12 20.200z"/></svg>
@@ -269,15 +256,10 @@ document.addEventListener("error", function (e) {
   </div>
 </main>
 
-<div class="marquee" aria-hidden="true">
-  <div class="track" id="track"></div>
-</div>
-
 <div class="wrap">
   <section id="portfolio">
     <div class="head">
       <div>
-        <p class="eyebrow">Portfólio</p>
         <h2>Artes que<br>jogam junto</h2>
       </div>
       <p>Flyers de jogo e DVDs de atleta feitos para jogadores de todo o Brasil. Toque em uma arte para ver maior.</p>
@@ -294,8 +276,7 @@ document.addEventListener("error", function (e) {
   <section id="valores">
     <div class="head">
       <div>
-        <p class="eyebrow">Valores</p>
-        <h2>Preço de<br>time pequeno</h2>
+        <h2>Quanto<br>custa</h2>
       </div>
       <p>Valores diretos por peça. Fale com a gente e receba o orçamento do seu pedido.</p>
     </div>
@@ -306,12 +287,11 @@ document.addEventListener("error", function (e) {
         <p>Arte estática para divulgar jogo, apresentar o atleta ou anunciar uma conquista nas redes sociais.</p>
         <a class="btn dark wa-link" href="#" target="_blank" rel="noopener">Pedir este</a>
       </article>
-      <article class="price hot">
-        <span class="tag">Mais pedido</span>
+      <article class="price">
         <h3>Flyer motion</h3>
         <div class="val"><small>R$</small>25</div>
         <p>O flyer ganha movimento. Mais atenção no feed e no story, com a cara de um atleta profissional.</p>
-        <a class="btn wa-link" href="#" target="_blank" rel="noopener">Pedir este</a>
+        <a class="btn dark wa-link" href="#" target="_blank" rel="noopener">Pedir este</a>
       </article>
       <article class="price">
         <h3>DVD</h3>
@@ -329,7 +309,6 @@ document.addEventListener("error", function (e) {
         <p>Seu talento merece uma imagem à altura. É isso que a gente entrega.</p>
       </div>
       <div class="txt">
-        <p class="eyebrow">Sobre a empresa</p>
         <p>A Dantas Designs tem o papel de trazer a você, atleta, uma melhor imagem para se destacar, gerando grandes oportunidades na sua área.</p>
         <ul class="pillars">
           <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.500 7 .8-5.200 4.800 1.400 7-6.200-3.500L5.800 21l1.400-7L2 9.300l7-.8z"/></svg></span><div><b>Destaque</b><span>Artes pensadas para o seu nome aparecer primeiro.</span></div></li>
@@ -344,8 +323,7 @@ document.addEventListener("error", function (e) {
 
 <div class="closing" id="contato">
   <div class="wrap">
-    <img class="brand" src="img/logo-white.png" alt="Dantas Designs" width="300" height="302">
-    <p class="eyebrow" style="color:#7fa6ff">Contato</p>
+    <img class="brand" src="img/logo-white.png" alt="Dantas Designs" width="150" height="151">
     <h2>Pronto para entrar em campo?</h2>
     <p>Chame no WhatsApp, acompanhe o trabalho no Instagram e assista no YouTube.</p>
     <div class="socials">
@@ -415,15 +393,9 @@ document.addEventListener("error", function (e) {
     b.type = "button";
     b.className = "tile";
     b.dataset.i = i;
-    b.innerHTML = '<div class="frame"><img src="' + it.src + '" alt="' + it.t + ' - ' + it.sub + '" loading="lazy"></div><div class="meta"><b>' + it.t + '</b><small>' + kindName[it.k] + '</small></div>';
+    b.innerHTML = '<div class="frame"><img src="' + it.src + '" alt="' + it.t + ' - ' + it.sub + '" loading="lazy"></div><div class="meta"><b>' + it.t + '</b><span>' + it.sub + '</span></div>';
     host.appendChild(b);
   });
-
-  var words = ["Flyers", "Flyer motion", "DVDs", "Imagem de atleta", "Destaque", "Oportunidades"];
-  var tr = document.getElementById("track");
-  var html = "";
-  for (var r = 0; r < 4; r++) words.forEach(function (w) { html += "<span>" + w + "</span><span>/</span>"; });
-  tr.innerHTML = html;
 
   var chips = document.querySelectorAll(".chip");
   chips.forEach(function (c) {

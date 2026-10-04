@@ -49,16 +49,19 @@ h2 { font-size: clamp(2.8rem, 8vw, 5.2rem); letter-spacing: .005em; }
 @keyframes prog { to { transform: scaleX(1); } }
 
 /* botoes */
-.btn { --bg: var(--blue); --fg: #fff; display: inline-flex; align-items: center; gap: 10px; background: var(--bg); color: var(--fg); text-decoration: none; font-weight: 600; font-size: 1rem; letter-spacing: .02em; padding: 14px 24px; border: 0; cursor: pointer; clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%); position: relative; overflow: hidden; transition: transform .25s var(--ease), background .2s; }
+.btn { --bg: var(--blue); --fg: #fff; display: inline-flex; align-items: center; gap: 10px; background: var(--bg); color: var(--fg); text-decoration: none; font-weight: 600; font-size: 1rem; letter-spacing: .02em; padding: 13px 24px; border: 2px solid var(--ink); border-radius: 999px; --sh: var(--ink); box-shadow: 4px 4px 0 var(--sh); cursor: pointer; position: relative; overflow: hidden; transition: transform .2s var(--ease), box-shadow .2s var(--ease), background .2s; }
 .btn svg { width: 20px; height: 20px; fill: currentColor; flex: none; }
 .btn::after { content: ""; position: absolute; inset: 0 auto 0 -60%; width: 40%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent); transform: skewX(-20deg); transition: left .6s var(--ease); }
 .btn:hover::after { left: 130%; }
-.btn:hover { transform: translateY(-2px); }
-.btn:active { transform: translateY(0) scale(.98); }
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sh); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--sh); }
+.band .btn, .closing .btn { --sh: var(--blue); }
+.band .btn.dark { border-color: var(--ink); }
+.closing .btn { border-color: #fff; }
 .btn.dark { --bg: var(--ink); }
 .btn.wa { --bg: #1faa59; }
 .btn.light { --bg: #fff; --fg: var(--ink); }
-.btn.sm { padding: 10px 18px; font-size: .92rem; }
+.btn.sm { padding: 8px 18px; font-size: .92rem; box-shadow: 3px 3px 0 var(--sh); }
 
 /* topo */
 .top { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
@@ -92,7 +95,7 @@ h1 .hl { color: var(--blue); }
 .lead { max-width: 30rem; color: var(--muted); font-size: 1.1rem; margin: 22px 0 28px; animation: fade .8s var(--ease) .75s backwards; }
 @keyframes fade { from { opacity: 0; transform: translateY(14px); } }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; animation: fade .8s var(--ease) .9s backwards; }
-.pricepill { font-weight: 500; color: var(--ink); border: 2px solid var(--ink); padding: 8px 14px; font-size: .95rem; }
+.pricepill { font-weight: 500; color: var(--ink); border: 2px solid var(--ink); padding: 8px 16px; font-size: .95rem; border-radius: 999px; }
 .pricepill b { color: var(--blue); }
 
 /* leque de artes */
@@ -206,8 +209,9 @@ section { padding-block: 92px 24px; }
 .closing h2 { font-size: clamp(2.8rem, 9vw, 6rem); }
 .closing p { color: #c4cee6; max-width: 32rem; margin: 18px auto 30px; }
 .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
-.btn.wa.pulse::before { content: ""; position: absolute; inset: 0; border: 3px solid #fff; opacity: 0; animation: ring 2.2s ease-out infinite; }
-@keyframes ring { 0% { opacity: .8; transform: scale(1); } 100% { opacity: 0; transform: scale(1.5); } }
+.btn.wa.pulse { animation: ring 2.2s ease-out infinite; }
+.btn.wa.pulse:hover { animation: none; }
+@keyframes ring { 0% { box-shadow: 4px 4px 0 var(--sh), 0 0 0 0 rgba(31,170,89,.75); } 100% { box-shadow: 4px 4px 0 var(--sh), 0 0 0 18px rgba(31,170,89,0); } }
 .contacts { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 8px 30px; justify-content: center; color: #aeb9d4; font-size: .95rem; }
 .contacts b { color: #fff; font-weight: 600; }
 .foot { background: var(--ink); color: #7d89a6; text-align: center; font-size: .85rem; padding: 0 16px 28px; }
@@ -402,9 +406,9 @@ document.addEventListener("error", function (e) {
   var items = [
     { k: "flyer", t: "Canaã x Galáticos", sub: "Candangão Sub-17", src: "img/a01.jpg" },
     { k: "flyer", t: "Planaltina x Gama", sub: "Candangão Sub-20", src: "img/a02.jpg" },
-    { k: "flyer", t: "Canaã x Coimbra", sub: "Dia de jogo", src: "img/a04.jpg" },
+    { k: "flyer", t: "Canaã x Coimbra", sub: "Amistoso", src: "img/a04.jpg" },
     { k: "flyer", t: "Canaã x Atlético GO", sub: "Supercopa Capital Sub-17", src: "img/a06.jpg" },
-    { k: "flyer", t: "Canaã x Cruzeiro", sub: "Dia de jogo", src: "img/a07.jpg" },
+    { k: "flyer", t: "Canaã x Cruzeiro", sub: "Amistoso", src: "img/a07.jpg" },
     { k: "flyer", t: "Planaltina x Gama", sub: "Candangão Sub-20", src: "img/a03.jpg" },
     { k: "flyer", t: "Planaltina x Gama", sub: "Candangão Sub-20", src: "img/a08.jpg" },
     { k: "flyer", t: "Taguatinga x Gama", sub: "Candangão Sub-20", src: "img/a09.jpg" },
